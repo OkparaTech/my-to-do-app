@@ -2,7 +2,7 @@
 
 A clean, modern To-Do application built with HTML, CSS, and JavaScript. It features an elegant custom theme color picker and saves all your data automatically.
 
-**🔗 Live Website:** [Click here to view my live website](https://github.io)
+**🔗 Live Website:** [Click here to view my live website](https://okparatech.github.io/my-to-do-app/)
 
 ---
 
@@ -27,7 +27,7 @@ A clean, modern To-Do application built with HTML, CSS, and JavaScript. It featu
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com
+   git clone https://github.com/OkparaTech/my-to-do-app.git
    ```
 2. Navigate into the folder:
    ```bash

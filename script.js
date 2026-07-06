@@ -1,30 +1,33 @@
-// Select HTML Elements
 const taskInput = document.getElementById('task-input');
 const addBtn = document.getElementById('add-btn');
 const taskList = document.getElementById('task-list');
+const themePicker = document.getElementById('theme-picker');
 
-// Load tasks from LocalStorage when the application starts
-document.addEventListener('DOMContentLoaded', loadTasks);
+document.addEventListener('DOMContentLoaded', () => {
+    loadTasks();
+    loadSavedTheme();
+});
 
-// Event listener for adding a task via button click
 addBtn.addEventListener('click', addTask);
-
-// Event listener for adding a task via pressing the 'Enter' key
 taskInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') addTask();
 });
 
+themePicker.addEventListener('input', (e) => {
+    const selectedColor = e.target.value;
+    applyTheme(selectedColor);
+    localStorage.setItem('savedTheme', selectedColor);
+});
+
 function addTask() {
     const taskText = taskInput.value.trim();
-    
     if (taskText === '') {
         alert('Please enter a valid task!');
         return;
     }
-
     createTaskElement(taskText);
     saveTaskToLocalStorage(taskText);
-    taskInput.value = ''; // Clear input field
+    taskInput.value = ''; 
 }
 
 function createTaskElement(text) {
@@ -44,7 +47,6 @@ function createTaskElement(text) {
     taskList.appendChild(li);
 }
 
-// LocalStorage Helper Functions
 function getTasksFromStorage() {
     let tasks = localStorage.getItem('tasks');
     return tasks ? JSON.parse(tasks) : [];
@@ -63,7 +65,18 @@ function loadTasks() {
 
 function removeTaskFromLocalStorage(taskToRemove) {
     let tasks = getTasksFromStorage();
-    // Filter out the deleted task
     tasks = tasks.filter(task => task !== taskToRemove);
     localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
+function applyTheme(color) {
+    document.body.style.setProperty('--bg-color', color);
+}
+
+function loadSavedTheme() {
+    const savedColor = localStorage.getItem('savedTheme');
+    if (savedColor) {
+        applyTheme(savedColor);
+        themePicker.value = savedColor;
+    }
 }

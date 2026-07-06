@@ -3,14 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI-Assisted Task Manager</title>
+    <title>MY-TO-DO-APP</title>
+    
+    <link rel="stylesheet" href="https://cloudflare.com">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    
+    <div class="theme-wrapper">
+        <label for="theme-picker" class="fancy-theme-btn">
+            <i class="fas fa-paint-brush"></i> Change Theme
+        </label>
+        <input type="color" id="theme-picker" value="#667eea">
+    </div>
+
     <div class="todo-container">
         <h1>Task Manager</h1>
         <div class="input-section">
-            <input type="text" id="task-input" placeholder="Add a new task..." maxlength="50">
+            <input type="text" id="task-input" placeholder="Add a new task...">
             <button id="add-btn">Add Task</button>
         </div>
         <ul id="task-list"></ul>

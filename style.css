@@ -6,93 +6,160 @@
 }
 
 body {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: var(--bg-color, #667eea); 
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    transition: background 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* Ultra smooth color interpolation fade */
 }
 
+/* Wrapper alignment for the theme system */
+.theme-wrapper {
+    margin-bottom: 25px;
+}
+
+/* This turns the HTML label into a premium UI button wrapper */
+.fancy-theme-btn {
+    background: #ffffff;
+    color: #333333;
+    padding: 12px 20px;
+    border-radius: 50px; /* pill-shaped button layout */
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+/* Interactive hover micro-animations */
+.fancy-theme-btn:hover {
+    transform: translateY(-2px); /* Slight lift effect */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    background: #f8fafc;
+    color: #667eea;
+}
+
+.fancy-theme-btn:active {
+    transform: translateY(1px); /* Press down click feedback animation */
+}
+
+/* THE SECRET TRICK: Hide the ugly default browser color square safely */
+#theme-picker {
+    display: none;
+}
+
+/* Application Interface Core Container */
 .todo-container {
     background: #ffffff;
     padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
     width: 100%;
-    max-width: 400px;
+    max-width: 450px;
 }
 
 h1 {
-    color: #333;
-    margin-bottom: 20px;
-    font-size: 24px;
+    color: #222222;
+    margin-bottom: 24px;
+    font-size: 26px;
     text-align: center;
+    letter-spacing: -0.5px;
 }
 
 .input-section {
     display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
+    gap: 12px;
+    margin-bottom: 24px;
 }
 
-input {
+input[type="text"] {
     flex: 1;
-    padding: 12px;
+    padding: 14px;
     border: 2px solid #e2e8f0;
-    border-radius: 6px;
+    border-radius: 8px;
     outline: none;
     font-size: 16px;
-    transition: border-color 0.2s;
+    transition: all 0.2s ease;
 }
 
-input:focus {
+input[type="text"]:focus {
     border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
 }
 
-button {
-    background-color: #667eea;
+button#add-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     border: none;
-    padding: 12px 18px;
-    border-radius: 6px;
+    padding: 14px 22px;
+    border-radius: 8px;
     cursor: pointer;
     font-weight: 600;
-    transition: background 0.2s;
+    font-size: 15px;
+    transition: all 0.2s ease;
 }
 
-button:hover {
-    background-color: #5a6fd6;
+button#add-btn:hover {
+    opacity: 0.95;
+    transform: scale(1.02);
 }
 
 ul {
     list-style: none;
-    max-height: 300px;
+    max-height: 320px;
     overflow-y: auto;
+    padding-right: 4px;
+}
+
+/* Style scrollbar track area neatly */
+ul::-webkit-scrollbar {
+    width: 6px;
+}
+ul::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
 }
 
 li {
     background: #f8fafc;
-    padding: 12px;
-    margin-bottom: 10px;
-    border-radius: 6px;
+    padding: 14px;
+    margin-bottom: 12px;
+    border-radius: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-left: 4px solid #667eea;
-    animation: fadeIn 0.3s ease;
+    border-left: 5px solid #667eea;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+    word-break: break-word;
+    gap: 15px;
+    animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .delete-btn {
-    background-color: #ef4444;
-    padding: 6px 12px;
-    font-size: 12px;
+    background-color: #fee2e2;
+    color: #ef4444;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
 }
 
 .delete-btn:hover {
-    background-color: #dc2626;
+    background-color: #ef4444;
+    color: #ffffff;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(12px); }
     to { opacity: 1; transform: translateY(0); }
 }

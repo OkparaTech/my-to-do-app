@@ -1,47 +1,39 @@
-# 🚀Task Manager
+# 🎨 Premium To-Do App
 
-A clean, modern, and responsive To-Do application built to learn the fundamentals of front-end software engineering. This project handles user task creation, dynamic DOM updates, and client-side data persistence.
+A clean, modern To-Do application built with HTML, CSS, and JavaScript. It features an elegant custom theme color picker and saves all your data automatically.
 
-Live Demo: [Click here to view my live website](https://github.io)
-
----
-
-## 🛠️ Tech Stack & Concepts Learned
-
-- **HTML5:** Semantic page structuring and element layouts.
-- **CSS3:** Custom UI design using CSS variables, Flexbox centring, and custom fade-in animations.
-- **JavaScript (ES6+):** Event listeners, arrow functions, template literals, and input validation.
-- **Web Storage API:** Implemented `localStorage` to ensure user tasks persist across browser sessions and page refreshes.
-- **Git & GitHub:** Version control, local commits, branch management, and remote deployment.
+**🔗 Live Website:** [Click here to view my live website](https://github.io)
 
 ---
 
-## ⚙️ Features
+## ✨ Features
 
-- ✨ **Add Tasks:** Create new tasks easily with instantaneous interface updates.
-- 🗑️ **Delete Tasks:** Remove completed tasks from the UI and device memory in real-time.
-- 💾 **Data Persistence:** Tasks are written directly to your browser's local storage engine so they never disappear on refresh.
-- 📱 **Responsive Design:** Optimized layout for desktop screens and mobile interfaces.
+- 🎨 **Fancy Theme Button:** Click the custom paintbrush button at the top to change the background color instantly.
+- 💾 **Data Persistence:** Tasks and your chosen background color are saved to `localStorage`, so they stay put even if you refresh the page.
+- 🔓 **No Text Limits:** Long text wraps cleanly inside the app box without breaking the design layout.
+- 📱 **Mobile Friendly:** Works perfectly on phones, tablets, and desktop computers.
 
 ---
 
-## 🚀 How to Run This Project Locally
+## 🛠️ How the Files Work Together
 
-1. **Clone the repository:**
+- **`index.html` (The Bones):** Sets up the visual structure, inputs, and buttons.
+- **`style.css` (The Skin):** Handles the colors, animations, layout positioning, and button designs.
+- **`script.js` (The Brain):** Listens for clicks, adds or deletes tasks, and handles browser memory storage.
+
+---
+
+## 🚀 How to Run it Locally
+
+1. Clone the repository:
    ```bash
    git clone https://github.com
    ```
-
-2. **Navigate into the directory:**
+2. Navigate into the folder:
    ```bash
    cd my-to-do-app
    ```
-
-3. **Launch the app:**
-   - Double-click `index.html` to open it in your default browser, or
-   - Use the **Live Server** extension in VS Code.
-
----
+3. Open `index.html` in your browser to run it.
 
 ## 🧠 Software Engineering Principles Applied
 - **Separation of Concerns:** Distinctly dividing structure (HTML), presentation (CSS), and runtime logic (JavaScript) into isolated files to maximize code maintainability.
